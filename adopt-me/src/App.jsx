@@ -18,16 +18,21 @@ const queryClient = new QueryClient({
 const App = () => {
   const adoptedPet = useState(null);
   return (
-    <div>
+    <div
+      className='m-0 p-0'
+      style={{
+        background: 'url(http://pets-images.dev-apis.com/pets/wallpaperA.jpg)',
+      }}
+    >
       <BrowserRouter>
         <AdoptedPetContext.Provider value={adoptedPet}>
           <QueryClientProvider client={queryClient}>
             <header>
-              <Link to="/">Adopt Me!</Link>
+              <Link to='/'>Adopt Me!</Link>
             </header>
             <Routes>
-              <Route path="/details/:id" element={<Details />} />
-              <Route path="/" element={<SearchParams />} />
+              <Route path='/details/:id' element={<Details />} />
+              <Route path='/' element={<SearchParams />} />
             </Routes>
           </QueryClientProvider>
         </AdoptedPetContext.Provider>

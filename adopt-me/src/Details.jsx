@@ -26,22 +26,27 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className='container mx-auto bg-gray-200 px-10 pb-10'>
       <Carousel images={pet.images} />
-      <div>
-        <h1>{pet.name}</h1>
-        <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
-        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
+      <div className='pt-10'>
+        <h1 className='font-bold'>{pet.name}</h1>
+        <h2 className='font-light text-gray-500'>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
+        <button
+          className='my-5 rounded bg-orange-500 py-2 px-4 font-bold text-white hover:bg-orange-700'
+          onClick={() => setShowModal(true)}
+        >
+          Adopt {pet.name}
+        </button>
         <p>{pet.description}</p>
         {showModal ? (
           <Modal>
             <div>
-              <h1>Would you like to adopt {pet.name}?</h1>
-              <div className="buttons">
+              <h1 className='text-xl'>Would you like to adopt {pet.name}?</h1>
+              <div className='buttons'>
                 <button
                   onClick={() => {
                     setAdoptedPet(pet);
-                    navigate("/");
+                    navigate('/');
                   }}
                 >
                   Yes

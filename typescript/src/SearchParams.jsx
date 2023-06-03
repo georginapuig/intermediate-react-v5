@@ -18,6 +18,7 @@ const SearchParams = () => {
 
   const results = useQuery(["search", requestParams], fetchSearch);
   const pets = results?.data?.pets ?? [];
+  console.log(results.data);
 
   return (
     <div className="search-params">

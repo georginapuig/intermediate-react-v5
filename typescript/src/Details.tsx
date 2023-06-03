@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import ErrorBoundary from "./ErrorBoundary";
 import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
+import { PetAPIResponse } from "./APIResponsesTypes";
 
 const Details = () => {
   const { id } = useParams();
@@ -14,6 +15,10 @@ const Details = () => {
   const results = useQuery(["details", id], fetchPet);
   // eslint-disable-next-line no-unused-vars
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
+
+  if (!id) {
+    throw new Error("no id provided to details");
+  }
 
   if (results.isLoading) {
     return (

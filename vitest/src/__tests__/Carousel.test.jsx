@@ -17,5 +17,6 @@ test("lets users click on thumbnails to make them the hero", async () => {
 
     expect(hero.src).toContain(image);
     expect(Array.from(thumb.classList)).toContain("active");
+    // expect(Array.from(!thumb.classList)).not.toContain("active");
   }
 });
